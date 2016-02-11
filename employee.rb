@@ -7,4 +7,5 @@ attr_reader :name, :email, :phone, :salary
     @salary = salary
   end
 
+
 end
