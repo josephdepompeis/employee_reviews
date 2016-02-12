@@ -6,7 +6,16 @@ attr_accessor :salary
     @email = email
     @phone = phone
     @salary = salary
+    @review = ""
   end
+
+def review
+  @review
+end
+
+def add_review(review_text)
+  @review << review_text
+end
 
 
 end

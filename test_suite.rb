@@ -69,4 +69,10 @@ class ReviewsTest < Minitest::Test
     assert_equal '75,000', dep.get_total_salary
   end
 
+  def test_add_review_test
+    employee1 = Employee.new("John Dough", "johndough@gmail.com", "123-123-1234", 10000)
+    employee1.add_review("John Dough is a great guy!")
+    assert_equal "John Dough is a great guy!", employee1.review
+  end
+
 end

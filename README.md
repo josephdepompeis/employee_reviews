@@ -9,7 +9,7 @@ estimate: (1)     - 5 mins
 -complete
 
 Create a new employee (given his/her name, email address, phone number, and salary).
-estimate: (1)
+estimate: (1)     -5 mins
 -complete
 
 Add an employee to a department.
@@ -29,11 +29,13 @@ estimate:
 -complete
 
 Get a total salary for all employees in a department.
-estimate:
+estimate: 1 hr
+-complete - 4 hours
+
 Add some employee review text (a paragraph or two) to an employee.
-estimate:
+estimate: 1 hour - 25 minutes
 Mark whether an employee is performing satisfactorily or not satisfactorily.
-estimate:
+estimate: 25 min - 
 Give a raise to an individual. You decide if this makes sense in dollars or in percent.
 estimate:
 Give raises to a department's employees. You must pass this method a total dollar amount, and it must distribute the raise amounts reasonably to the department's employees. Only employees who are performing satisfactorily should get raises.
