@@ -26,4 +26,9 @@ def mark_satisfactory(yes_or_no)
 @satisfactory = true if yes_or_no == true
 end
 
+def give_raise(amount)
+@salary += amount
+
+end
+
 end
