@@ -5,20 +5,29 @@ Part 1
 You want to keep track of employees (with their names, email addresses, phone numbers, and salaries), departments (with their names), and which employees are in which department. You should be able to:
 
 Create a new department (given its name).
-estimate: (1)
+estimate: (1)     - 5 mins
+-complete
 
 Create a new employee (given his/her name, email address, phone number, and salary).
-estimate:
+estimate: (1)
+-complete
+
 Add an employee to a department.
 estimate: (1)
+-complete
 
 Get an employee's name.
 estimate:
+-complete
 
 Get an employee's salary.
 estimate:
+-complete
+
 Get a department's name.
 estimate:
+-complete
+
 Get a total salary for all employees in a department.
 estimate:
 Add some employee review text (a paragraph or two) to an employee.
