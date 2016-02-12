@@ -7,15 +7,23 @@ attr_accessor :salary
     @phone = phone
     @salary = salary
     @review = ""
+    @satisfactory = false
   end
 
 def review
   @review
 end
 
+def satisfactory
+  @satisfactory
+end
+
 def add_review(review_text)
   @review << review_text
 end
 
+def mark_satisfactory(yes_or_no)
+@satisfactory = true if yes_or_no == true
+end
 
 end

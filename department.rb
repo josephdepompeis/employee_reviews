@@ -22,7 +22,7 @@ class Department
   def get_total_salary
     total_salaries = 0
     @employee_list.each do |e|
-      total_salaries =+ e.salary
+      total_salaries += e.salary
     end
     total_salaries
   end

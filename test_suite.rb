@@ -62,17 +62,26 @@ class ReviewsTest < Minitest::Test
   def test_get_department_salary
     dep = Department.new("Balogna")
     employee1 = Employee.new("John Dough", "johndough@gmail.com", "123-123-1234", 10000)
-    employee2 = Employee.new("Cathy Talker", "bighorn@gmail.com", "333-343-5463", "75,000")
+    employee2 = Employee.new("Cathy Talker", "bighorn@gmail.com", "333-343-5463", 50000)
     dep.add_employee(employee1)
     dep.add_employee(employee2)
     dep.get_total_salary
-    assert_equal '75,000', dep.get_total_salary
+      # byebug
+    assert_equal 60000, dep.get_total_salary
+
   end
 
   def test_add_review_test
     employee1 = Employee.new("John Dough", "johndough@gmail.com", "123-123-1234", 10000)
     employee1.add_review("John Dough is a great guy!")
     assert_equal "John Dough is a great guy!", employee1.review
+  end
+
+
+  def test_mark_satisfactory
+    employee2 = Employee.new("Cathy Talker", "bighorn@gmail.com", "333-343-5463", 50000)
+    employee2.mark_satisfactory(true)
+    assert_equal true, employee2.satisfactory
   end
 
 end

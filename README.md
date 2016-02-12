@@ -35,7 +35,7 @@ estimate: 1 hr
 Add some employee review text (a paragraph or two) to an employee.
 estimate: 1 hour - 25 minutes
 Mark whether an employee is performing satisfactorily or not satisfactorily.
-estimate: 25 min - 
+estimate: 25 min - 30 min
 Give a raise to an individual. You decide if this makes sense in dollars or in percent.
 estimate:
 Give raises to a department's employees. You must pass this method a total dollar amount, and it must distribute the raise amounts reasonably to the department's employees. Only employees who are performing satisfactorily should get raises.
