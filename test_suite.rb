@@ -69,8 +69,8 @@ class ReviewsTest < Minitest::Test
     assert_equal 60000, dep.get_total_salary
   end
 
-  def test_add_review_test
-    employee1 = Employee.new(name: "John Dough",email: "johndough@gmail.com",phone: "123-123-1234",salary: 10000)
+  def test_add_review
+    employee1 = Employee.new(email: "johndough@gmail.com",name: "John Dough",phone: "123-123-1234",salary: 10000)
     employee1.add_review("John Dough is a great guy!")
     assert_equal "John Dough is a great guy!", employee1.review
   end
@@ -132,9 +132,12 @@ class ReviewsTest < Minitest::Test
     assert_equal 105000, employee3.salary
   end
 
-
-
-
+  def test_get_review_from_file
+    employee4 = Employee.new(name: "Susan McMooth",email: "suzieM@gmail.com",phone: "994-167-1466",salary: 40000)
+    employee4.add_review_file('./sample_reviews.txt')
+    assert_equal "EMPLOYEE REVEIW-\nname- Mike Jones\nReview- Mike jones is a swell guy who works hard. He has a solid work ethic that gets the job done.\nHe has no problem doing the job that needs to get done. He goes above and beyond daily.\nSometimes he comes in 5 minutes late, but it doesn't seem to slow anything down.\nHe stays later if things are not where they should be. I admire his dedication.\n\nname- John Dough\nReview- John Dough is a lazy guy who does the bare minimum. He has a tendency to sleep during meetings.\nIt is rare that his breath is pleasant. Sometimes he comes in early to use the showers in the gym.\nIf John worked harder, maybe he would be able to solidify a future here. I feel his work unsatisfactory.\nHe should work from home.\n\nname- Cathy Talker\nReview- Cathy is a good person to have around. She works hard and tries her best to set a good example.\nShe comes to work on time and never cries when she has to stay later. She shares her food at lunch.\nCathy could use some work in the graphics design area. Her graphics are not good, nor modern.\nI wish she studied more typography.\n\nname- Susan McMooth\nReview- Susan cries at the office very frequently. She often leaves meetings early to cry.\nSometimes when watching Disney movies, she even gets angry and loud. She is not passionate about work.\nI love the fact that she comes in early though, she always has to leave on time for those pesky children.\nI find her unsatisfactory overall, but her attitude is nice. She doesn't do a good job with her marketing.\n", employee4.review_file
+  end
+  # assert_equal "John Dough is a great guy!", employee1.review
 
 
 end
