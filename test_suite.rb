@@ -87,21 +87,54 @@ class ReviewsTest < Minitest::Test
     assert_equal 55000, employee2.salary
   end
 
-  def test_give_raise_to_department
+  def test_give_raise_to_satisfactory_department
     dep = Department.new("Balogna")
     employee1 = Employee.new(name: "John Dough",email: "johndough@gmail.com",phone: "123-123-1234",salary: 10000)
     employee2 = Employee.new(name: "Cathy Talker",email: "bighorn@gmail.com",phone: "333-343-5463",salary: 50000)
+    employee3 = Employee.new(name: "Mike Jones",email: "palefriend@gmail.com",phone: "444-343-3333",salary: 100000)
+
     dep.add_employee(employee1)
     dep.add_employee(employee2)
-    assert_equal 60000, dep.get_total_salary
+    dep.add_employee(employee3)
+    assert_equal 160000, dep.get_total_salary
     employee2.mark_satisfactory(true)
     assert_equal true, employee2.satisfactory
     employee1.mark_satisfactory(true)
     assert_equal true, employee1.satisfactory
-    dep.give_raise(5000)
-    assert_equal 65000, dep.get_total_salary
+    dep.give_satisfactory_raise(5000)
+    assert_equal 165000, dep.get_total_salary
     assert_equal 52500, employee2.salary
     assert_equal 12500, employee1.salary
+    assert_equal 100000, employee3.salary
   end
+
+  ##PHASE 2
+  def test_give_targeted_to_department
+    dep = Department.new("Balogna")
+    employee1 = Employee.new(name: "John Dough",email: "johndough@gmail.com",phone: "123-123-1234",salary: 10000)
+    employee2 = Employee.new(name: "Cathy Talker",email: "bighorn@gmail.com",phone: "333-343-5463",salary: 50000)
+    employee3 = Employee.new(name: "Mike Jones",email: "palefriend@gmail.com",phone: "444-343-3333",salary: 100000)
+    dep.add_employee(employee1)
+    dep.add_employee(employee2)
+    dep.add_employee(employee3)
+    dep.give_targeted_raise(5000) {|e| e.salary < 100000}
+    assert_equal 165000, dep.get_total_salary
+    assert_equal 52500, employee2.salary
+    assert_equal 12500, employee1.salary
+    assert_equal 100000, employee3.salary
+
+    #using method to do satisfactory test
+    employee3.mark_satisfactory(true)
+    dep.give_targeted_raise(5000) {|e| e.satisfactory == true}
+    assert_equal 170000, dep.get_total_salary
+    assert_equal 52500, employee2.salary
+    assert_equal 12500, employee1.salary
+    assert_equal 105000, employee3.salary
+  end
+
+
+
+
+
 
 end

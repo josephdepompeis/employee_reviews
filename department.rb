@@ -27,14 +27,26 @@ class Department
     total_salaries
   end
 
-  def give_raise(raise_amount)
+  def give_satisfactory_raise(raise_amount)
     raise_employee_list =[]
     @employee_list.each do |e|
-    raise_employee_list << e if e.satisfactory
+      raise_employee_list << e if e.satisfactory
       end
     raise_employee_list.each do |p|
-    p.salary += (raise_amount / raise_employee_list.length)
+      p.salary += (raise_amount / raise_employee_list.length)
     end
   end
+
+  def give_targeted_raise(raise_amount)
+    raise_employee_list = []
+    @employee_list.each do |e|
+      raise_employee_list << e if yield(e)
+        end
+    raise_employee_list.each do |p|
+      p.salary += (raise_amount /raise_employee_list.length)
+    end
+  end
+
+
 
 end
