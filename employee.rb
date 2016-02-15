@@ -38,7 +38,27 @@ class Employee
   def add_review_file(review_text)
     contents = File.read(review_text)
     @review_file << contents
-end
+  end
+
+  def scan_review_file
+    # @review_file.scan(/mason/i)
+    #positive terms
+    positive_terms = []
+    negative_terms = []
+    @review_file.scan(Regexp.union(/good/, /satisfactory/, /positive/, /hard/)).each do |match|
+      positive_terms << match
+      end
+    @review_file.scan(Regexp.union(/bad/, /unsatisfactory/, /late/, /slow/)).each do |match|
+      negative_terms << match
+      end
+    @satisfactory = true if positive_terms.length > negative_terms.length
+
+    end
+
+
+
+  end
+
 
 
 
@@ -47,4 +67,4 @@ end
   # reviews = ['sample_review.txt']
   # # reviews = ['sample_review.txt', 'your_file_here.txt']
 
-end
+# end

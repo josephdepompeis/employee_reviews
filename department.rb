@@ -43,7 +43,7 @@ class Department
       raise_employee_list << e if yield(e)
         end
     raise_employee_list.each do |p|
-      p.salary += (raise_amount /raise_employee_list.length)
+      p.salary += (raise_amount / raise_employee_list.length)
     end
   end
 
